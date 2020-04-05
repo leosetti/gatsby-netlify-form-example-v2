@@ -86,7 +86,7 @@ export default function Contact() {
             <textarea name="message2" onChange={handleChange} />
           </label>
         </p>
-        <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
+        <div data-netlify-recaptcha="true"></div>
         <p>
           <button type="submit">Send</button>
         </p>
