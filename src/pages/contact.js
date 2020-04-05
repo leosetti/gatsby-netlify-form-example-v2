@@ -70,6 +70,13 @@ export default function Contact() {
           </label>
         </p>
         <p>
+          <label>
+            Message 2:
+            <br />
+            <textarea name="message2" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
           <button type="submit">Send</button>
         </p>
       </form>
