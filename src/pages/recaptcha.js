@@ -79,6 +79,13 @@ export default function Contact() {
             <textarea name="message" onChange={handleChange} />
           </label>
         </p>
+        <p>
+          <label>
+            Message 2:
+            <br />
+            <textarea name="message2" onChange={handleChange} />
+          </label>
+        </p>
         <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
         <p>
           <button type="submit">Send</button>
