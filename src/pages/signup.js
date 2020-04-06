@@ -39,7 +39,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target;
-    const recaptchaValue = recaptchaRef.current.getValue()
+    //const recaptchaValue = recaptchaRef.current.getValue()
 
     fetch('/', {
       method: 'POST',
