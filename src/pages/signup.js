@@ -30,7 +30,7 @@ function encode(data) {
 
 const Signup = () => {
   const [state, setState] = React.useState({})
-  const recaptchaRef = React.createRef()
+  //const recaptchaRef = React.createRef()
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value })
@@ -46,7 +46,7 @@ const Signup = () => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        'g-recaptcha-response': recaptchaValue,
+        //'g-recaptcha-response': recaptchaValue,
         ...state,
       }),
     })
@@ -89,7 +89,7 @@ const Signup = () => {
         method="post"
         action="/thanks/"
         data-netlify="true"
-        data-netlify-recaptcha="true"
+        //data-netlify-recaptcha="true"
         onSubmit={handleSubmit}
       >
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
@@ -122,7 +122,6 @@ const Signup = () => {
             <textarea name="message2" onChange={handleChange} />
           </label>
         </p>
-        <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
         <p>
           <button type="submit">Send</button>
         </p>
