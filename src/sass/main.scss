@@ -1,5 +1,7 @@
 
 body{
+  background-color: #ddd;
+
   h1.MuiTypography-root{
     margin:25px 0px 0px 0px;
   }
@@ -8,5 +10,30 @@ body{
   }
   p.MuiTypography-root{
     margin:18px 0px;
+  }
+  .MuiCard-root,
+  .card{
+    margin-bottom: 20px;
+  }
+  .form-group {
+    margin-bottom: 25px;
+  }
+  label {
+    color: #575c60;
+    font-size: 0.9rem;
+  }
+  .center{
+    text-align: center;
+  }
+  .buttonlink{
+    text-align:center;
+    cursor: pointer;
+    a{
+      color: #152f57;
+      &:hover{
+        color: #152f57;
+        text-decoration: none;
+      }
+    }
   }
 }

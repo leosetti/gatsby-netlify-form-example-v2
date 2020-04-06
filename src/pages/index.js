@@ -5,8 +5,8 @@ import ListGroup from 'react-bootstrap/ListGroup'
 export default function Index() {
   return (
     <Layout>
-      <ListGroup>
-        <ListGroup.Item as={Link} to="/signup">
+      <ListGroup className="buttonlink">
+        <ListGroup.Item variant="success" as={Link} to="/signup">
           Sign-up for personal training now!
         </ListGroup.Item>
       </ListGroup>

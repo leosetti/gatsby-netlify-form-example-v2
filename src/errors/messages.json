@@ -3,5 +3,15 @@
   "errors.name.string.max": "This field exceeds the maximum permitted length",
   "errors.name.any.required":"This field is mandatory",
   "errors.age.any.required":"This field is mandatory",
-  "errors.gender.any.required":"This field is mandatory"
+  "errors.gender.any.required":"This field is mandatory",
+  "errors.email.any.required":"This field is mandatory",
+  "errors.email.string.email":"This should be a valid email adress",
+  "errors.instagram.any.required":"This field is mandatory",
+  "errors.height.any.required":"This field is mandatory",
+  "errors.weight.any.required":"This field is mandatory",
+  "errors.conditions.any.required":"This field is mandatory",
+  "errors.medications.any.required":"This field is mandatory",
+  "errors.risk.any.required":"This field is mandatory",
+  "errors.injuries.any.required":"This field is mandatory",
+  "errors.cleared.any.required":"This field is mandatory"
 }
