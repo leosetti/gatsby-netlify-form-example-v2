@@ -109,7 +109,7 @@ export default function Contact() {
             Don’t fill this out: <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
-        <TextField required id="name" label="Your name" defaultValue="" onChange={handleChange} />
+        <TextField required name="name" label="Your name" defaultValue="" onChange={handleChange} />
 
         <p>
           <label>
