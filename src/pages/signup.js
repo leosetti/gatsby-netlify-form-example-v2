@@ -28,7 +28,7 @@ function encode(data) {
     .join('&')
 }
 
-export default function Contact() {
+const Signup = () => {
   const [state, setState] = React.useState({})
   const recaptchaRef = React.createRef()
 
@@ -38,12 +38,15 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const form = e.target
+    const form = e.target;
+    const recaptchaValue = recaptchaRef.current.getValue()
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
+        'g-recaptcha-response': recaptchaValue,
         ...state,
       }),
     })
@@ -80,26 +83,13 @@ export default function Contact() {
       <Typography variant="body1" component="p">
       Deborah
       </Typography>
-       
-
-
-
-
-
-
-
-
-
-
  
-
-
       <form
         name="contact"
         method="post"
         action="/thanks/"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true"
         onSubmit={handleSubmit}
       >
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
@@ -140,3 +130,5 @@ export default function Contact() {
     </Layout>
   )
 }
+
+export default Signup;
