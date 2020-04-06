@@ -33,3 +33,4 @@ public/
 
 # Environment variables
 .env.development
+.env

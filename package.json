@@ -5,6 +5,7 @@
   "author": "swyx <swyx@dontemail.me>",
   "dependencies": {
     "gatsby": "^2.13.35",
+    "gatsby-plugin-config": "^1.0.7",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "netlify-lambda": "^1.6.0",
     "react": "^16.8.6",
