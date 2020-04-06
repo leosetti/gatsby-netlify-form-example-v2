@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import './css/typography.css'
-import './css/styles.css'
+//import './css/typography.css'
+//import './css/styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './sass/main.scss'
 

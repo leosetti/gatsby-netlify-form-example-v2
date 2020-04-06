@@ -1,0 +1,7 @@
+{
+  "errors.name.string.min": "Enter at least 2 characters",
+  "errors.name.string.max": "This field exceeds the maximum permitted length",
+  "errors.name.any.required":"This field is mandatory",
+  "errors.age.any.required":"This field is mandatory",
+  "errors.gender.any.required":"This field is mandatory"
+}

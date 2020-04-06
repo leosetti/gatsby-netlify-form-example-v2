@@ -1,10 +1,21 @@
-import React from 'react'
-import { navigate } from 'gatsby-link'
-import Recaptcha from 'react-google-recaptcha'
-import Layout from '../layout'
+import React, {useState} from 'react';
+import { navigate } from 'gatsby-link';
+import Recaptcha from 'react-recaptcha';
+import getValidationErrors from '../helpers/validationHelper'
 import config from 'gatsby-plugin-config';
-import Typography from '@material-ui/core/Typography'
-import TextField from '@material-ui/core/TextField'
+import Layout from '../layout';
+import Typography from '@material-ui/core/Typography';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
+import Button  from 'react-bootstrap/Button';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Joi from "joi-browser";
+import messages from '../errors/messages.json';
 import 'typeface-roboto';
 
 let ENV_RECAPTCHA_KEY = null;
@@ -22,31 +33,73 @@ if (typeof RECAPTCHA_KEY === 'undefined') {
   `)
 }
 
-function encode(data) {
+const encode = data => {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
 }
 
+
+
 const Signup = () => {
   const [state, setState] = React.useState({})
-  //const recaptchaRef = React.createRef()
+  const [verified, setVerified] = useState(false);
+  const [verifyValidateError, setVerifyValidateError] = useState(false);
+  const [validateErrors, setValidateErrors] = useState(null);
+
+  const verifyCallback = function (response) {
+    if(response) setVerified(true);
+  };
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
 
+  const schemaKeys = { 
+    name: Joi.string().min(2).max(50).required(),
+    age: Joi.number().required(),
+    gender: Joi.string().required()
+  };
+  let schema = Joi.object().keys(schemaKeys).options({abortEarly: false});
+
+  let borderClass1 = "", borderClass2 = "", borderClass3 = "";
+  let validateError1 = false, validateError2 = false, validateError3 = false;
+  if(validateErrors !== null && validateErrors.name !== undefined && validateErrors.name !== null){
+    borderClass1 = "border border-danger";
+    validateError1 = true;
+  }
+  if(validateErrors !== null && validateErrors.age !== undefined && validateErrors.age !== null){
+    borderClass2 = "border border-danger";
+    validateError2 = true;
+  }
+  if(validateErrors !== null && validateErrors.gender !== undefined && validateErrors.gender !== null){
+    borderClass3 = "border border-danger";
+    validateError3 = true;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target;
-    //const recaptchaValue = recaptchaRef.current.getValue()
+
+    if(verified){
+      setVerifyValidateError(false);
+    }else{
+      setVerifyValidateError(true);
+    }
+
+    let err = null;
+    err = getValidationErrors(schema, state);
+    console.log(`err=${JSON.stringify(err)}`)
+    setValidateErrors(err);
+    if(err !== null||!verified){
+      return null;
+    }
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        //'g-recaptcha-response': recaptchaValue,
         ...state,
       }),
     })
@@ -89,7 +142,7 @@ const Signup = () => {
         method="post"
         action="/thanks/"
         data-netlify="true"
-        //data-netlify-recaptcha="true"
+        data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
       >
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
@@ -99,32 +152,68 @@ const Signup = () => {
             Don’t fill this out: <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
-        <TextField required name="name" label="Your name" defaultValue="" onChange={handleChange} />
+        <Row>
+          <Col>
+            <Form.Group controlId="name">
+              <Form.Label>Your name</Form.Label>
+              <Form.Control 
+                className={borderClass1} 
+                type="text" 
+                name="name"
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {validateError1 && (
+              <Alert variant={'danger'}>{messages[validateErrors.name.msg]}</Alert>
+            )}
+          </Col>
+        </Row>
 
-        <p>
-          <label>
-            Your email:
-            <br />
-            <input type="email" name="email" onChange={handleChange} />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message:
-            <br />
-            <textarea name="message" onChange={handleChange} />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message 2:
-            <br />
-            <textarea name="message2" onChange={handleChange} />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
+        <Row>
+          <Col md={6}>
+            <Form.Group controlId="age">
+              <Form.Label>Age</Form.Label>
+              <Form.Control 
+                className={borderClass2} 
+                type="number" 
+                name="age"
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {validateError2 && (
+              <Alert variant={'danger'}>{messages[validateErrors.age.msg]}</Alert>
+            )}
+          </Col>
+          <Col md={6}>
+            <FormControl component="fieldset">
+              <Form.Label>Gender</Form.Label>
+              <RadioGroup aria-label="gender" name="gender" onChange={handleChange} row>
+                <FormControlLabel value="female" control={<Radio />} label="Female" />
+                <FormControlLabel value="male" control={<Radio />} label="Male" />
+              </RadioGroup>
+            </FormControl>
+            {validateError3 && (
+              <Alert variant={'danger'}>{messages[validateErrors.gender.msg]}</Alert>
+              )}
+          </Col>
+        </Row>
+
+        <Row>
+          <Col md={6}>
+            <Recaptcha
+              sitekey={RECAPTCHA_KEY}
+              verifyCallback={verifyCallback}
+            />
+            {verifyValidateError && (
+              <Alert variant={'danger'}>Please check this box to prove you are not a robot</Alert>
+            )} 
+          </Col>
+        </Row>   
+              
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+       
       </form>
     </Layout>
   )
