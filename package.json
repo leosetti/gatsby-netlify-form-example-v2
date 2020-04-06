@@ -4,15 +4,21 @@
   "version": "1.0.0",
   "author": "swyx <swyx@dontemail.me>",
   "dependencies": {
+    "@material-ui/core": "^4.9.9",
+    "bootstrap": "^4.4.1",
     "gatsby": "^2.13.35",
     "gatsby-plugin-config": "^1.0.7",
     "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-sass": "^2.2.1",
     "netlify-lambda": "^1.6.0",
+    "node-sass": "^4.13.1",
     "react": "^16.8.6",
     "react-async-script": "^0.9.1",
+    "react-bootstrap": "^1.0.0",
     "react-dom": "^16.8.6",
     "react-google-recaptcha": "^1.1.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
     "dotenv": "^5.0.1"

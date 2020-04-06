@@ -4,13 +4,15 @@ import { Helmet } from 'react-helmet'
 
 import './css/typography.css'
 import './css/styles.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './sass/main.scss'
 
 export default function Template({ children }) {
   return (
     <div>
       <Helmet
-        title="Gatsby Default Starter"
-        meta={[{ name: 'description', content: 'Sample' }, { name: 'keywords', content: 'sample, something' }]}
+        title="Deborah Hayon"
+        meta={[{ name: 'description', content: '' }, { name: 'keywords', content: '' }]}
       />
       <div
         style={{
@@ -33,7 +35,7 @@ export default function Template({ children }) {
                 textDecoration: 'none',
               }}
             >
-              Gatsby + Netlify Forms
+              @deboradoesfit
             </Link>
           </h1>
         </div>

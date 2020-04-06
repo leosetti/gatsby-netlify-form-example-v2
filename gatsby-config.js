@@ -9,7 +9,10 @@ const config = require('gatsby-plugin-config');
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Netlify Form Integration`
+    title: `Deborah Hayon`
   },
-  plugins: [`gatsby-plugin-react-helmet`]
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`
+  ]
 };

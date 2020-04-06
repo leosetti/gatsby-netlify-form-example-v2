@@ -3,6 +3,9 @@ import { navigate } from 'gatsby-link'
 import Recaptcha from 'react-google-recaptcha'
 import Layout from '../layout'
 import config from 'gatsby-plugin-config';
+import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
+import 'typeface-roboto';
 
 let ENV_RECAPTCHA_KEY = null;
 if (config.IS_STAGING) {
@@ -50,7 +53,47 @@ export default function Contact() {
 
   return (
     <Layout>
-      <h1>Contact</h1>
+      <Typography variant="h4" component="h1">
+      Questionnaire : Online Coaching Application 
+      </Typography>
+      <Typography variant="h5" component="h2">
+      (8 weeks program 399$) 
+      </Typography>
+      <Typography variant="body1" component="p">
+      Hey beautiful creature!
+      </Typography>
+      <Typography variant="body1" component="p">
+      If you landed here through my Instagram, it’s because you already know a little bit about me. 
+      </Typography>
+      <Typography variant="body1" component="p">
+      Now its my turn to get to know You! 
+      </Typography>
+      <Typography variant="body1" component="p">
+      As your coach, it is important for me to ask you all the right questions so I can get an accurate and well rounded idea of your current lifestyle, your habits, your previous methods used, as well as any prior injuries you might have. I also want to know your motivation for wanted to embark on this journey as well as anything that makes you who you are today! 
+      </Typography>
+      <Typography variant="body1" component="p">
+      Please answer every question as honestly as you can and as detailed as possible. This way, we can see if we are a good fit to work together on your goals. 
+      </Typography>
+      <Typography variant="body1" component="p">
+      Thanks and talk soon! 
+      </Typography>
+      <Typography variant="body1" component="p">
+      Deborah
+      </Typography>
+       
+
+
+
+
+
+
+
+
+
+
+ 
+
+
       <form
         name="contact"
         method="post"
@@ -66,13 +109,8 @@ export default function Contact() {
             Don’t fill this out: <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
-        <p>
-          <label>
-            Your name:
-            <br />
-            <input type="text" name="name" onChange={handleChange} />
-          </label>
-        </p>
+        <TextField required id="name" label="Your name" defaultValue="" onChange={handleChange} />
+
         <p>
           <label>
             Your email:
