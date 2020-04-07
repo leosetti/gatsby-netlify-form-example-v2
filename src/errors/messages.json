@@ -13,5 +13,17 @@
   "errors.medications.any.required":"This field is mandatory",
   "errors.risk.any.required":"This field is mandatory",
   "errors.injuries.any.required":"This field is mandatory",
-  "errors.cleared.any.required":"This field is mandatory"
+  "errors.cleared.any.required":"This field is mandatory",
+  "errors.activity.any.required":"This field is mandatory",
+  "errors.location.any.required":"This field is mandatory",
+  "errors.time.any.required":"This field is mandatory",
+  "errors.experience.any.required":"This field is mandatory",
+  "errors.pr.any.required":"This field is mandatory",
+  "errors.worked.any.required":"This field is mandatory",
+  "errors.eating.any.required":"This field is mandatory",
+  "errors.restrictions.any.required":"This field is mandatory",
+  "errors.shortTermGoal.any.required":"This field is mandatory",
+  "errors.longTermGoal.any.required":"This field is mandatory",
+  "errors.expectations.any.required":"This field is mandatory",
+  "errors.ready.any.required":"This field is mandatory"
 }
