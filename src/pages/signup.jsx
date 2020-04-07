@@ -708,6 +708,8 @@ const Signup = () => {
                     <Recaptcha
                       sitekey={RECAPTCHA_KEY}
                       verifyCallback={verifyCallback}
+                      render="explicit" 
+                      onloadCallback={console.log.bind(this, "recaptcha loaded")}
                     />
                     {verifyValidateError && (
                       <Alert variant={'danger'}>Please check this box to prove you are not a robot</Alert>
