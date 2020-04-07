@@ -263,7 +263,7 @@ const Signup = () => {
               <form
                 name="contact"
                 method="post"
-                action="/thanks/"
+                action="/submitted/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
