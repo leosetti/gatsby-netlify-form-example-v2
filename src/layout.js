@@ -35,7 +35,7 @@ export default function Template({ children }) {
                 textDecoration: 'none',
               }}
             >
-              @deboradoesfit
+              @deb_does_fit
             </Link>
           </h1>
         </div>
