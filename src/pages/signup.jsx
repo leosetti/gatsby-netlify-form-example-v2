@@ -84,7 +84,8 @@ const Signup = () => {
     shortTermGoal: Joi.string().required(),
     longTermGoal: Joi.string().required(),
     expectations: Joi.string().required(),
-    ready: Joi.string().required()
+    ready: Joi.string().required(),
+    remarks: Joi.string().optional()
   };
   let schema = Joi.object().keys(schemaKeys).options({abortEarly: false});
 
