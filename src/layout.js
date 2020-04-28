@@ -14,10 +14,11 @@ export default function Template({ children }) {
         title="Deborah Hayon"
         meta={[{ name: 'description', content: '' }, { name: 'keywords', content: '' }]}
       />
+
       <div
         style={{
           background: `rebeccapurple`,
-          marginBottom: `1.45rem`,
+          marginBottom: `40px`
         }}
       >
         <div
@@ -40,6 +41,7 @@ export default function Template({ children }) {
           </h1>
         </div>
       </div>
+
       <div
         style={{
           margin: `0 auto`,
@@ -48,8 +50,10 @@ export default function Template({ children }) {
           paddingTop: 0,
         }}
       >
+
         {children}
       </div>
     </div>
+
   )
 }

@@ -3,7 +3,7 @@ import { navigate } from 'gatsby-link';
 import Recaptcha from 'react-recaptcha';
 import getValidationErrors from '../helpers/validationHelper'
 import config from 'gatsby-plugin-config';
-import Layout from '../layout';
+import Layout from '../layoutparallax';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,7 +13,6 @@ import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
 import Button  from 'react-bootstrap/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -221,16 +220,19 @@ const Signup = () => {
 
   return (
     <Layout>
-      <Row>
+      <div className="topParagraph">
+        <Typography variant="h4" component="h1">
+          Questionnaire : Online Coaching Application 
+        </Typography>
+        <Typography variant="h5" component="h2">
+        (8 weeks program 399$) 
+        </Typography>
+      </div>
+      <Row className="topRow">
+        <div className="wrapper">
         <Col>
-          <Card>
+          <Card className="semitransparentRow">
             <CardContent>
-              <Typography variant="h4" component="h1">
-              Questionnaire : Online Coaching Application 
-              </Typography>
-              <Typography variant="h5" component="h2">
-              (8 weeks program 399$) 
-              </Typography>
               <Typography variant="body1" component="p">
               Hey beautiful creature!
               </Typography>
@@ -247,16 +249,16 @@ const Signup = () => {
               Please answer every question as honestly as you can and as detailed as possible. This way, we can see if we are a good fit to work together on your goals. 
               </Typography>
               <Typography variant="body1" component="p">
-              Thanks and talk soon! 
-              </Typography>
-              <Typography variant="body1" component="p">
+              Thanks and talk soon! <br/>
               Deborah
               </Typography>
             </CardContent>
           </Card>
         </Col>
+        </div>
       </Row>
-      <Row>
+      <Row className="grey">
+      <div className="wrapper">
         <Col>
           <Card>
             <CardContent>
@@ -727,8 +729,12 @@ const Signup = () => {
             </CardContent>
           </Card>
         </Col>
+        </div>
       </Row>
     </Layout>
+
+
+
   )
 }
 

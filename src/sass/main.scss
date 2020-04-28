@@ -2,6 +2,75 @@
 body{
   background-color: #ddd;
 
+
+  .parallax {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .parallax__layer--base {
+    transform: translateZ(0);
+  }
+  .parallax__layer--back {
+    transform: translateZ(-1px) scale(2);
+    top: 40px;
+    @media (min-width: 600px) {
+      top: 6vw;
+    }
+    @media (min-width: 900px) {
+      top: 3vw;
+    }
+    @media (min-width: 1200px) {
+      top: 2vw;
+    }
+    .gatsby-image-wrapper{
+      min-width: 1200px;
+    }
+    img{
+      width: 100vw !important;
+    }
+    
+  }
+  .parallax__layer--deep {
+    transform: translateZ(-2px) scale(3);
+  }
+
+  .topRow{
+    padding-bottom:5vw;
+  }
+  .grey{
+    background-color: #ddd;
+    padding-top:15px;
+  }
+  .wrapper{
+    max-width:1200px;
+    margin: auto;
+  }
+
+
+  .topParagraph{
+    color:rgba(255, 255, 255, 0.96);
+    margin-bottom: 6vw;
+    text-align: center;
+  }
+  .semitransparentRow{
+    background-color:rgba(240, 248, 255, 0.65);
+    .MuiCardContent-root{
+      padding:0 16px;
+    }
+  }
+
+
+
+
   h1.MuiTypography-root{
     margin:25px 0px 0px 0px;
   }
