@@ -11,19 +11,17 @@ import './sass/main.scss'
 export default function Template({ children }) {
   const data = useStaticQuery(graphql`
   query MyQuery {
-    file(relativePath: {eq: "deb.jpg"}) {
+    file(relativePath: {eq: "deb1.jpg"}) {
       childImageSharp {
-        fluid {
-          aspectRatio
-          base64
-          sizes
-          src
-          srcSet
-        }
+        fluid(sizes: "(max-width: 600px) 1000px,(max-width: 1200px) 1600px, 2000px"){ 
+          ...GatsbyImageSharpFluid
+         } 
       }
     }
   }  
   `)
+
+  
 
   return (
     <div>
@@ -65,7 +63,7 @@ export default function Template({ children }) {
             style={{
               margin: `0 auto`,
               padding: `6vw 1.0875rem 1.45rem`,
-              backgroundColor: `#2828283d`
+              backgroundColor: `rgba(40, 40, 40, 0.4)`
             }}
           >
             {children}
