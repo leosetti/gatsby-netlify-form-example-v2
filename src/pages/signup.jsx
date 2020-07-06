@@ -225,7 +225,7 @@ const Signup = () => {
           Questionnaire : Online Coaching Application 
         </Typography>
         <Typography variant="h5" component="h2">
-        (8 weeks program 399$) 
+        (4 weeks program 399$) 
         </Typography>
       </div>
       <Row className="topRow">
